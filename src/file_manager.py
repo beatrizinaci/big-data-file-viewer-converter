@@ -12,7 +12,7 @@ def read_parquet(file):
     return pd.read_parquet(file)
 
 def read_avro(file):
-    return pd.read_avro(file)   
+    pass
 
 def read_json(file):
     return json.load(file)
@@ -30,10 +30,6 @@ FILE_HANDLERS = {
     },
     ".parquet": {
         "reader": read_parquet,
-        "options": {}
-    },
-    ".avro": {
-        "reader": read_avro,
         "options": {}
     },
     ".json": {

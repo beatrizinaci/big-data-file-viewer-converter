@@ -1,10 +1,12 @@
 # Big Data File Converter
 
 ## Overview
-The Big Data File Converter is a **Streamlit-based** application that allows users to upload and preview and export data in various formats, including CSV, ORC, Parquet, Avro and JSON. The application provides optinos to customize the file readinf process, sucj as specifying headers and delimiters for CSV files.
+The Big Data File Converter is a **Streamlit-based** application that allows users to upload and preview and export data in various formats, including CSV, ORC, Parquet and JSON. The application provides options to customize the file readinf process, sucj as specifying headers and delimiters for CSV files.
+
+You can access the app [here](https://big-data-file-converter.streamlit.app/).
 
 ## Features
-- Supports multiple file formats: CSV, ORC, Parquet, Avro, JSON
+- Supports multiple file formats: CSV, ORC, Parquet, JSON
 - Customizable options for CSV files (header and delimiter)
 - Displays the content of the uploaded files in a user-friendly format
 - User can export data as csv
