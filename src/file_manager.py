@@ -1,5 +1,6 @@
 import pandas as pd
 import json
+import polars as pl
 
 
 def read_csv(file, delimiter=',', header=0):
@@ -9,10 +10,12 @@ def read_orc(file):
     return pd.read_orc(file)
 
 def read_parquet(file): 
-    return pd.read_parquet(file)
+    return pl.read_parquet(file)
 
 def read_avro(file):
-    pass
+    df = pl.read_avro(file)
+    json_obj = df.to_dicts() 
+    return json_obj # I'm returning a json object for avro because it has nested structures
 
 def read_json(file):
     return json.load(file)
@@ -30,6 +33,10 @@ FILE_HANDLERS = {
     },
     ".parquet": {
         "reader": read_parquet,
+        "options": {}
+    },
+    ".avro": {
+        "reader": read_avro,
         "options": {}
     },
     ".json": {

@@ -35,12 +35,16 @@ def process_uploaded_files(uploaded_files):
         file_options = file_manager.FILE_HANDLERS[file_type]["options"].copy()
         display_file_options(file_options, uploaded_file.name)
 
-        df = file_manager.read_file(uploaded_file, file_type, **file_options)
-
-        if df is not None:
-            st.write(df)
+        try:
+            df = file_manager.read_file(uploaded_file, file_type, **file_options)
+        except Exception as e:
+            st.error(f"Error reading {uploaded_file.name}: {e}")
+            continue
         else:
-            st.error(f"Error reading {uploaded_file.name}")
+            if df is not None:
+                st.write(df)
+            else:
+                st.error(f"Error reading {uploaded_file.name}")
 
         st.divider()    
 
